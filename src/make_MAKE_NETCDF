@@ -1,0 +1,16 @@
+F90 = mpif90 -I/usr/local/software/spack/spack-views/.rhel8-icelake-202110272/uxqqj4xcjrltatqgtuoi2hp46uabtzom/intel-oneapi-mpi-2021.4.0/intel-2021.4.0/kypfgtnfzspxoby7tqy7yt6ykejpwk5n/mpi/2021.4.0/
+
+FFLAGS = -O2
+LDFLAGS = -lnetcdff
+
+SRC = \
+	MAKE_NETCDF.f90
+
+OBJ = $(SRC:.f90=.o)
+
+MAKE_NETCDF.exe : $(OBJ)
+	$(F90) $(FFLAGS) -o MAKE_NETCDF.exe $(OBJ) $(LDFLAGS)
+
+# Main routine
+MAKE_NETCDF.o : MAKE_NETCDF.f90
+	$(F90) $(FFLAGS) -c MAKE_NETCDF.f90
