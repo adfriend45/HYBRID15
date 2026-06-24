@@ -1,7 +1,6 @@
 subroutine INIT
 use VARS
 implicit none
-integer :: nyr
 write (*,*) 'genius'
 filename = 'namelist.txt'
 open (10, file = filename, status = 'old')
